@@ -29,7 +29,8 @@ public class EventMapper extends HttpServlet {
     .setUsername("admin@cmort.org")
     .setPassword("test1234")
     .setClientId("3MVG9PhR6g6B7ps45QoRvhVGGMgobZgOdHAgdldNFg3gANvnTkhpjPSGdmY_O1s0RYW2YBdzBUdb_zUUkEA0q")
-    .setClientSecret("2196529513255626584"));
+    .setClientSecret("2196529513255626584")
+    .setForceURL("https://login-blitz04"));
 
 
         System.err.println("Id: " + api.getIdentity().getId());
@@ -49,15 +50,5 @@ public class EventMapper extends HttpServlet {
         resp.getWriter().print("EventMapper");
     }
 
-    public static void main(String[] args) throws Exception{
-        System.err.println("Starting EventMapper");
-        System.err.println("PORT: " + System.getenv("PORT"));
-        Server server = new Server(Integer.valueOf(System.getenv("PORT")));
-        ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        context.setContextPath("/");
-        server.setHandler(context);
-        context.addServlet(new ServletHolder(new EventMapper()),"/*");
-        server.start();
-        server.join();
-    }
+
 }
