@@ -8,6 +8,7 @@ import org.eclipse.jetty.servlet.ServletHolder;
 public class EventMapperServer {
 
     public static void main(String[] args) throws Exception{
+
         System.err.println("Starting EventMapper");
         System.err.println("PORT: " + System.getenv("PORT"));
         Server server = new Server(Integer.valueOf(System.getenv("PORT")));
@@ -15,7 +16,7 @@ public class EventMapperServer {
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
         server.setHandler(context);
-        context.addServlet(new ServletHolder(new EventMapper()),"/*");
+        context.addServlet(new ServletHolder(new EventMapper()),"/");
 
 
         server.start();

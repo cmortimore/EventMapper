@@ -19,27 +19,16 @@ public class EventMapper extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-
-
         System.err.println("Init Servlet");
-
-
-
-        ForceApi api = new ForceApi(new ApiConfig()
-    .setUsername("admin@cmort.org")
-    .setPassword("test1234")
-    .setClientId("3MVG9PhR6g6B7ps45QoRvhVGGMgobZgOdHAgdldNFg3gANvnTkhpjPSGdmY_O1s0RYW2YBdzBUdb_zUUkEA0q")
-    .setClientSecret("2196529513255626584")
-    .setForceURL("https://login-blitz04"));
-
-
-        System.err.println("Id: " + api.getIdentity().getId());
-
-
-
-
-
-
+        String forceURL = System.getenv("FORCE_URL");
+        if (forceURL == null || forceURL.equals("")) {
+            //force://login.salesforce.com:443?user=admin@db.com&password=test1234&oauth_key=3MVG99OxTyEMCQ3hoszdSdiXWom2XQ0K_NfXZn1rjwjSGL1LdofLvRjRcIFY.HmHznE_Z8MJuXy5zkkcC.V_6&oauth_secret=5629166396566573549
+            System.err.println("Please set FORCE_URL environment variable");
+        } else {
+            ApiConfig c = new ApiConfig().setForceURL(forceURL);
+            ForceApi api = new ForceApi(c);
+            System.err.println("Integration Identity: " + api.getIdentity().getId());
+        }
 
 
     }
