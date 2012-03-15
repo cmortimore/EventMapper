@@ -29,7 +29,7 @@ function fetchEvents() {
         markers = null;
     }
     map.setCenter(latlng);
-    $.getJSON('/events', function(data) {
+    $.getJSON('/services/events', function(data) {
         if ( data.error == 401 ) {
             window.location = '/login';
             return;
@@ -79,7 +79,7 @@ function showInfoWindowByID(eventid) {
     $('#' + eventid).css("background-color","whitesmoke");
     selected = '#' + eventid;
 
-    $.getJSON('/event/' + eventid , function(data) {
+    $.getJSON('/services/event/' + eventid , function(data) {
 
         var description = '';
         if ( data.Description__c ) description = data.Description__c;
