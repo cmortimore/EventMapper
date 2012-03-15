@@ -1,3 +1,5 @@
 A quick demo app used for authentication and authorization presentations at CloudStock & Dreamforce
 
+It uses the force-rest-api from Jesper: https://github.com/jesperfj/force-rest-api
+
 Based on the "Containerless WebApp with Embedded Jetty" found here: http://java.heroku.com/
