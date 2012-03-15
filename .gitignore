@@ -2,3 +2,4 @@ target
 events.iml
 events.ipr
 events.iws
+setEnvironment_local.sh

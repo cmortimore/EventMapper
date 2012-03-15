@@ -61,7 +61,7 @@ public class EventMapper extends HttpServlet {
 
         } else if ( path.equals("/login")) {
 
-            String url = Auth.startOAuthWebServerFlow(new AuthorizationRequest().apiConfig(c));
+            String url = Auth.startOAuthWebServerFlow(new AuthorizationRequest()..apiConfig(c));
             resp.sendRedirect(url);
 
         } else if ( path.equals("/oauth")) {
