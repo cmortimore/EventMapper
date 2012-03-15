@@ -1,1 +1,1 @@
-web:    java -cp target/classes:target/dependency/* com.force.api.demo.EventMapperServer
+web:    java -cp target/classes:target/dependency/* com.force.api.demo.EventMapper
